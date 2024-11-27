@@ -1,3 +1,3 @@
 provider "azurerm" {
-     source = "hashicorp/azurerm"
+     features        = {}
 }
