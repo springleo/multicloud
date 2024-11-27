@@ -63,6 +63,17 @@ jobs:
       run:
         shell: bash
 
+    env:
+      # Load environment variables for AWS from secrets
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      # Load environment variables for Azure from secrets
+      # AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      # AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+      # AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+      # AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
     steps:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
@@ -73,6 +84,18 @@ jobs:
       uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: '1.5.0'
+
+    - name: Set up AWS CLI
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_DEFAULT_REGION }}'  
+
+    - name: Azure Login with Managed Identity
+      uses: azure/login@v1
+      with:
+        enable-managed-identity: true
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
