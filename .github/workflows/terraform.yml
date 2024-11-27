@@ -100,7 +100,7 @@ jobs:
       uses: azure/login@v1
       with:
         client-id: true
-        tenant-id: true
+        tenant-id: ${{ secrets.TENANT_ID }}
         subscription-id: ${{ secrets.SUBSCRIPTION_ID}}
         # creds: true
 
