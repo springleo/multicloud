@@ -6,16 +6,19 @@ variable "aws_region" {
 
 variable "s3_bucket_name" {
   type        = string
+  default = "my-multi-cloud-bucket"
   description = "Name of the S3 bucket"
 }
 
 variable "azure_resource_group" {
   type        = string
+  default = "multi-cloud-rg"
   description = "Azure Resource Group name"
 }
 
 variable "azure_storage_name" {
   type        = string
+  default = "multicloudstorageacct"
   description = "Azure Storage Account name"
 }
 
