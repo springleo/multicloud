@@ -1,0 +1,5 @@
+aws_region         = "us-east-1"
+s3_bucket_name     = "my-multi-cloud-bucket"
+azure_resource_group = "multi-cloud-rg"
+azure_storage_name   = "multicloudstorageacct"
+azure_location       = "East US"
