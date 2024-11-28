@@ -1,4 +1,5 @@
 resource "azurerm_resource_group" "rg" {
+  count = var.is_azure_enabled == true ? 1 : 0
   name     = var.resource_group
   location = var.azure_location
 }
