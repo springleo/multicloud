@@ -9,7 +9,4 @@ resource "aws_s3_bucket" "bucket" {
   }
 }
 
-output "s3_bucket_name" {
-  count = var.is_aws_enabled == true ? 1 : 0
-  value = aws_s3_bucket.bucket.id
-}
+
