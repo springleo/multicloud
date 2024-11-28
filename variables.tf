@@ -4,15 +4,6 @@ variable "aws_region" {
   description = "AWS Region"
 }
 
-variable "is_aws_enabled" {
-  type = bool
-  default = false
-}
-
-variable "is_azure_enabled" {
-  type = bool
-  default = false
-}
 
 variable "s3_bucket_name" {
   type        = string

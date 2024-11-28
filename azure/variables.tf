@@ -12,3 +12,8 @@ variable "azure_location" {
   type        = string
   description = "Azure region for the resources"
 }
+
+variable "is_azure_enabled" {
+  type = bool
+  default = false
+}
