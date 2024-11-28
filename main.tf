@@ -12,7 +12,7 @@ terraform {
   }
 
   backend "s3" {
-  bucket         = var.s3_bucket_name
+  bucket         = "my-multi-cloud-bucket"
   key            = "tfstate/terraform.tfstate"
   region         = "us-east-1"
   encrypt        = true
