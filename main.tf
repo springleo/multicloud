@@ -9,6 +9,20 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~> 3.0"
     }
+
+  backend "s3" {
+  bucket         = var.s3_bucket_name
+  key            = "tfstate/terraform.tfstate"
+  region         = "us-east-1"
+  encrypt        = true
+  dynamodb_table = "my-terraform-locks"
+  }
+
+  backend "azurerm" {
+    storage_account_name = var.azure_storage_name
+    container_name       = "terraform-state"
+    key                  = "terraform.tfstate"
+  }
   }
 
   backend "local" {
