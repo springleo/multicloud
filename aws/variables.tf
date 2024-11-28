@@ -10,5 +10,5 @@ variable "bucket_name" {
 
 variable "is_aws_enabled" {
   type = bool
-  default = false
+  default = true
 }
