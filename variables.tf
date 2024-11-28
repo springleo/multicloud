@@ -4,6 +4,16 @@ variable "aws_region" {
   description = "AWS Region"
 }
 
+variable "is_aws_enabled" {
+  type = boolean
+  default = false
+}
+
+variable "is_azure_enabled" {
+  type = boolean
+  default = false
+}
+
 variable "s3_bucket_name" {
   type        = string
   default = "my-multi-cloud-bucket"
