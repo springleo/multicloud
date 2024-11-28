@@ -15,5 +15,5 @@ variable "azure_location" {
 
 variable "is_azure_enabled" {
   type = bool
-  default = false
+  default = true
 }
