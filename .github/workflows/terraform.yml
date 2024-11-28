@@ -113,6 +113,7 @@ jobs:
     #   run: terraform fmt -check
 
     # Generates an execution plan for Terraform
+    # dummy comment
     - name: Terraform Plan
       run: terraform plan -input=false -var-file=terraform.tfvars
 
