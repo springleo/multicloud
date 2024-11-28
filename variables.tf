@@ -5,12 +5,12 @@ variable "aws_region" {
 }
 
 variable "is_aws_enabled" {
-  type = boolean
+  type = bool
   default = false
 }
 
 variable "is_azure_enabled" {
-  type = boolean
+  type = bool
   default = false
 }
 
