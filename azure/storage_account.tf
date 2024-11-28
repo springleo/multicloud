@@ -18,5 +18,6 @@ resource "azurerm_storage_account" "storage" {
 }
 
 output "storage_account_name" {
-  value = azurerm_storage_account.storage[count.index].name
+  count = var.is_azure_enabled == true ? 1 : 0
+  value = azurerm_storage_account.storage.name
 }
