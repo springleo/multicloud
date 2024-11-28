@@ -1,3 +1,3 @@
-output "azure_storage_account_url" {
-  value = var.is_azure_enabled ? module.azure_storage.storage_account_name : "No Azure storage account created"
+output azure_sa_name {
+  value = var.is_azure_enabled ? azurerm_storage_account.storage.name : "No Azure SA created"
 }
