@@ -12,7 +12,7 @@ terraform {
   }
 
   backend "s3" {
-  bucket         = "my-multi-cloud-bucket"
+  bucket         = "mmikkili-terraform-state"
   key            = "tfstate/terraform.tfstate"
   region         = "us-east-1"
   encrypt        = true
