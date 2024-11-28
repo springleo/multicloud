@@ -48,6 +48,12 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Specify the Terraform action (apply or destroy)"
+        required: true
+        default: "apply"
 
 # permissions:
 #   contents: read
@@ -123,3 +129,8 @@ jobs:
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       # run: terraform apply -auto-approve -input=false tfplan
       run: terraform apply "tfplan"
+
+    - name: Terraform Destroy
+      if: ${{ github.event.inputs.action == 'destroy' }}
+      # run: terraform apply -auto-approve -input=false tfplan
+      run: terraform destroy -auto-approve
